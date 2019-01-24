@@ -66,8 +66,29 @@ In React, everything is expressed as javascript, javascript objects including ht
 The Virtual DOM is built with javascript. Hence its easier to manipulate the virtual DOM
 as it is simply an JS Object.
 
-#### Step 1
+### Step 1
   - Some introduction on React
   - setup folder structure
     - ./src contains all the js code that gets build to ./dist folder
     - ./dist is the formatted code that is runnable in all browsers. This is where the application runs
+
+
+### Step 2 Pure React in browser
+
+  - Load the react scripts ie. *react and react-dom* to index.html
+  - As expected the script will publish react globals  
+      ![inspect view](./resources/docs/inspect-globals.png)  
+
+Of these some of the important methods are
+  - React
+    - createElement()
+
+  - ReactDOM
+    - render()  
+
+Lets use these methods to build a simple element and render on html  
+
+1. In order to render the page ReactDOM.render() needs
+  - the **react-element** to render
+  - container DOM to load the **react-element** and render
+2. **react-element** is an object got from React.createElement() *signature is in code*
