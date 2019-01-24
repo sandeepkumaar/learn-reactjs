@@ -92,3 +92,12 @@ Lets use these methods to build a simple element and render on html
   - the **react-element** to render
   - container DOM to load the **react-element** and render
 2. **react-element** is an object got from React.createElement() *signature is in code*
+
+
+
+### Step 3 Pure React in browser Extended
+
+Lets create react-elements with child tags
+We will see how react-elements are simple js objects  
+And how we can apply js composition techniques to
+compose complex template.
