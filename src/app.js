@@ -6,8 +6,9 @@
 
 const ReactDOM = require('react-dom');
 
-// import pure-react
+// import
 const pureReactDiv = require('./pure-react');
+const jsxReactDiv = require('./jsx-react')
 
 
 /**
@@ -17,6 +18,6 @@ const pureReactDiv = require('./pure-react');
  * @param callback function that is called when element is rendered on the page
  */
 ReactDOM.render(
-  pureReactDiv,
+  jsxReactDiv,
   document.getElementById('react-root')
 );

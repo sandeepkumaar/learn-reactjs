@@ -116,3 +116,143 @@ Here we have dynamically added the data name in the react element
 with which we can use js techniques (reduce, map etc);
 
 Also we have created a pure-react file for *modularisation*
+
+
+#### Step 5 Introducing JSX for replacing complex react-element
+
+Writing code with react-elements is difficult especially when the DOM
+structure is huge  
+Hence React guys used the JSX for constructing react-elemnts
+
+##### What is JSX
+JSX stands for Javasript XML
+
+
+JSX is an XML-like syntax extension to ECMAScript without any *defined semantics*  
+It is **NOT** intended to be implemented by engines or browsers  
+**It's NOT a proposal to incorporate JSX into the ECMAScript spec itself.**  
+
+It's intended to be used by various preprocessors (transpilers) to transform these **tokens** into standard ECMAScript.
+
+```
+const x = <h1>sandeep</h1>;
+```
+The above code if ran on node,browser it throws error.  
+The browser or node cannot understand JSX notations.The transpilers like
+babel will identify the JSX code and convert them to runnable js code.  
+
+```
+const x = <h1>sandeep</h1>;
+```
+is converted to
+
+```
+var x = React.createElement(
+  "h1",
+  null,
+  "sandeep"
+);
+```
+
+Here the object is wrapped by React.createElement(). This is due to *preset* set
+in babel to react. so babel will assume that the JSX has to converted to a react-element.   
+Hence the object is wrapped with React.createElement();  
+
+We can use other *presets* to convert the JSX to whatever library specific code.
+
+Note: JSX is independent of React. JSX ca be used anywhere.
+[JSX site](https://facebook.github.io/jsx/)
+
+
+In the illustration we will see how JSX gets converted to react-elements and
+how dynamic data passing is still possible  
+
+> Note: Make sure JSX expression returns a single element. Having adjacent elements or siblings
+> will ask you to enclose the second element with expression syntax (expr)
+> Avoid returning JSX with siblings. Instead separate them into components. This is more convenient and
+> a best practice
+
+##### What is Babel ?
+Babel is a transpiler that converts all ES2015+ code ie. ES6,ES7,Typescript,JSX and
+few other advanced js code to normal vanilla JS (ES2015)
+
+
+babel-core // is the core package that contains logic to convert anything to js  
+what to convert ie. ES6 -> ES5 or Promises -> polyfills are mentioned by **presets**  also called as plugins  
+[Here is the list of presets](https://babeljs.io/docs/en/presets)  
+
+Babel-cli package is used to transpile code with the help of babel-core and
+related presets/plugins  
+
+babel-cli looks for .babelrc file to see what format needs to be transpiled
+
+```
+{
+  "presets": ["env"] // env represents all ES5+ codes not react or other special types
+}
+```
+
+
+###### JSX is an Expression !
+Since react-element is a js object/expression we can treat it like any other js
+code and subject it to any js operations  
+JSX itself is an expression and allows js expressions within them so that it can exhibit all the behaviours   
+
+Expressions are enclosed by {js expressions}
+
+> Best practice: Since JSX is an expression its better to treat them as expression by enclosing with (expr)
+
+> Important: Inside JSX context all expressions should be enclosed by {}. Don't try to inline js blocks *{}*
+> or function blocks. Instead treat JSX as a variable and use that variable in your functions or conditional expr
+
+In short, don't do this
+
+```
+const heading = (
+  //  expression
+  if(!isBool){
+    <h1 id='heading-4'>{family_1.name}</h1>
+  }else{
+    <h1 id='heading-4'>{family_2.name}</h1>
+  }
+);
+```
+Instead,
+```
+var head_1 = (<h1 id='heading-4'>{family_1.name}</h1>);
+var head_2 = (<h1 id='heading-4'>{family_2.name}</h1>);
+
+function getHeading(bool) {
+  if(bool){
+    return head_1;
+  }else{
+      return head_2
+  }
+
+}
+// or
+
+function getHeading(bool) {
+  if(bool){
+    return (<h1 id='heading-4'>{family_1.name}</h1>);
+  }else{
+      return (<h1 id='heading-4'>{family_2.name}</h1>)
+  }
+
+}
+```
+
+> Note: Don't interpolate the jsx {} expression with string. It wont transpile.For XML attributes
+> either use curly braces {} or "". Not together in whichever fashion.  
+> This can be handled by interpolating outside the jsx expression and providing the interpolated value
+
+
+We have illustrated all the possible expressions applied on JSX  
+
+> Note: JSX boils down to React.createElement() call which returns a simple object
+
+> Info: JSX Prevents Injection Attacks
+
+
+> Important Note: Since JSX is transpiled to a fixed code with React.createElement,
+when requiring `react` module make sure the variable name matches the transpiled version

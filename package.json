@@ -4,17 +4,21 @@
   "description": "A simple react app which demonstrates all the basic and the powerfull features without the unwanted dependencies",
   "main": "index.js",
   "dependencies": {
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
   },
   "devDependencies": {
-    "browserify": "^16.2.0",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "babelify": "^10.0.0",
+    "browserify": "^16.2.3",
     "watchify": "^3.11.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:js": "browserify src/app.js > dist/bundle.js -d",
-    "watch:js": "watchify src/app.js -o dist/bundle.js -dv",
+    "build:js": "browserify src/app.js -t babelify > dist/bundle.js -d",
+    "watch:js": "watchify src/app.js -t babelify -o dist/bundle.js -dv",
     "watch": "npm run watch:js"
   },
   "keywords": [
