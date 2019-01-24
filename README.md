@@ -59,9 +59,9 @@ Characterstics
   - virtual DOM // DOM Diffing and updating only the changes
 
 
---------------------------------
+
 ## A simple html with React
---------------------------------
+
 In React, everything is expressed as javascript, javascript objects including html,css
 The Virtual DOM is built with javascript. Hence its easier to manipulate the virtual DOM
 as it is simply an JS Object.
@@ -256,3 +256,21 @@ We have illustrated all the possible expressions applied on JSX
 
 > Important Note: Since JSX is transpiled to a fixed code with React.createElement,
 when requiring `react` module make sure the variable name matches the transpiled version
+
+
+
+#### Step 6 Rendering Elements
+
+React.render() method will render the react-element
+
+> Note: react-elements are immutable. ie once created their attr,dom childs or anything cannot be
+> modified. react-element is like a single frame in a movie. the frame represents the UI at a certain point
+> Hence the only way to modify/update the react-element is by creating another react-element with the state changed
+> and pass it React.DOM() to re-render
+
+
+> React.DOM() while re-rendering will diff the existing react-element with the new react-element and *WRITES* only
+> what is changed
+
+
+The above is illustrated in dom (id = 'react-root-render')

@@ -9,7 +9,7 @@ const ReactDOM = require('react-dom');
 // import
 const pureReactDiv = require('./pure-react');
 const jsxReactDiv = require('./jsx-react')
-
+const getTimerEl = require('./render')
 
 /**
  * ReactDOM.render(element, container[, callback])
@@ -21,3 +21,12 @@ ReactDOM.render(
   jsxReactDiv,
   document.getElementById('react-root')
 );
+
+const timerRenderer = function() {
+  ReactDOM.render(
+    getTimerEl(),
+    document.getElementById("react-root-render")
+  );
+}
+// renders the timer for created timer elements
+setInterval(timerRenderer,1000);
