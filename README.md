@@ -101,3 +101,18 @@ Lets create react-elements with child tags
 We will see how react-elements are simple js objects  
 And how we can apply js composition techniques to
 compose complex template.
+
+
+### Step 4 Setup browserify to load modules
+
+Since React follows most of the native js values. we will leverage it by using node style module loading thru browserify.  
+
+  - install react, react-dom module from npm
+  - load them in the browser thru browserify
+  - remove the cdn scripts
+
+Note:
+Here we have dynamically added the data name in the react element  
+with which we can use js techniques (reduce, map etc);
+
+Also we have created a pure-react file for *modularisation*

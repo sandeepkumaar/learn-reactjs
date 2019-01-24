@@ -1,28 +1,14 @@
 /**
- * React.createElement(type, [properties], [...nested/child react-elements])
- * @param type  element type specific to react-dom element.
- * Note: the type is not html. Its an attribute in react-dom
- * Similarly we have different attributes for react-native
- * We should know this before using it
- * By default most attributes follow their technological equivalent
- * @param properties here corresponds to the data-attr
- * @param child contains all child react-elements - innerHTML
+ * require react modules for browser
+ * this will publish the react methods in this scope
+ * rather on the global scope
  */
-const heading = React.createElement(
-  'h1',
-  {id:'heading-4'},
-  'navin'
-);
-/**
- * Composing headign inside division
- * @note we can use javascript composition techniques here
- * to compose templates/react-elements
- */
-const division = React.createElement(
-  'div',
-  null,
-  heading //
-);
+
+const ReactDOM = require('react-dom');
+
+// import pure-react
+const pureReactDiv = require('./pure-react');
+
 
 /**
  * ReactDOM.render(element, container[, callback])
@@ -31,6 +17,6 @@ const division = React.createElement(
  * @param callback function that is called when element is rendered on the page
  */
 ReactDOM.render(
-  division,
+  pureReactDiv,
   document.getElementById('react-root')
 );
