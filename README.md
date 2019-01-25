@@ -359,9 +359,34 @@ state
 `componentDidMount()`
 
 Extended
-Using props and states
-Data flows down
-component composition
+#### Using props and states
+
+> Because this.props and this.state may be updated asynchronously, you should not rely on their values for calculating the next state.
+
+```
+// Wrong
+this.setState({
+  counter: this.state.counter + this.props.increment,
+});
+```
+
+```
+// Correct
+this.setState((state, props) => ({
+  counter: state.counter + props.increment
+}));
+```
+
+How to assign default values to `props` and `states`
+
+#### State Updates are Merged // Object.assign()
+states which are not mentioned are left as such
+
+
+#### Data flows down
+
+
+#### component composition
 
 
 ### Stateful Components using ReactClass module

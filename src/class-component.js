@@ -4,6 +4,12 @@ const ReactDOM = require('react-dom');
 
 
 
+const FormattedDate = function FormattedDate(props) {
+  return (
+    <h5>{props.date.toLocaleTimeString()}</h5>
+  )
+}
+
 /**
  *
  * @extends React
@@ -52,13 +58,20 @@ class Clock extends React.Component {
     return(
       <div>
        <h4>Class Clock</h4>
-       <h5>{this.state.date.toLocaleTimeString()}</h5>
+       <FormattedDate date={this.state.date}/>
       </div>
    );
   }
 }
 
+const ClockComposed = function ClockComposed(props) {
+  return(
+    <div>
+      <Clock offset={0}/>
+      <Clock offset={5}/>
+    </div>
+  )
+}
 
 
-
-module.exports = Clock;
+module.exports = ClockComposed;

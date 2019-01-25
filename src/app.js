@@ -50,6 +50,6 @@ ReactDOM.render(
  * ES6 class Component
  */
 ReactDOM.render(
-  <ClockClassComp offset={5}/>,
+  <ClockClassComp/>,
   document.getElementById("react-class-component")
 )
