@@ -3,6 +3,7 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 
 
+
 /**
  *
  * @extends React
@@ -10,13 +11,14 @@ const ReactDOM = require('react-dom');
 
 class Clock extends React.Component {
 
-  // state initialisation
+  // state initialisation // called by ReactDOM.render()
   constructor(props) {
     // Class components should always call the base constructor with props.
-    super(props)
+    super(props);
     this.state = {
       date: new Date()
     };
+    console.log(props);
   }
 
   // component hooks
@@ -37,9 +39,11 @@ class Clock extends React.Component {
 
   // behaviour
   tick() {
-    this.setState({
-      date: new Date()
-    });
+    var date = new Date();
+
+    this.setState((state, props) => ({
+      date: new Date(date.setSeconds(date.getSeconds() + props.offset))
+    }));
   }
 
 

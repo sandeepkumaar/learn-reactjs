@@ -350,3 +350,18 @@ In two-way binding, the framework *itself* update the view, model during digest
 cycles triggered by framework methods.
 
 What makes a component to unmount?
+
+What happens,
+- `ReactDOM.render()` calls the Clock's constructor and initializes
+state
+- calls component's `render()` and updates DOM
+- When render() output is inserted to DOM it triggers
+`componentDidMount()`
+
+Extended
+Using props and states
+Data flows down
+component composition
+
+
+### Stateful Components using ReactClass module
