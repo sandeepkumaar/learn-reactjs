@@ -319,4 +319,14 @@ The function in turn should **return a react-elemnt**
 ![Babel Transforming Cumstom tags](./resources/docs/babel-jsx-custom-tag.png)
 
 
-### Step 7.2 Components - Stateful component
+### Step 7.2 Components - functional component - extended
+- How to pass complex types as `props`
+- function composition with different value
+
+complex types Arrays, objects cannot be declared directly to JSX expression.
+The transpiler cannot understand. Hence the complex values are passed as variable
+reference
+
+
+#### Note:
+Functional components are pure functions. They dont modify the `props`

@@ -11,8 +11,8 @@ const React = require('react');
 const pureReactDiv = require('./pure-react');
 const jsxReactDiv = require('./jsx-react')
 const getTimerEl = require('./render')
-const TimerComp = require("./functional-component")
-console.log("timer", TimerComp);
+const FunCompComposed = require("./functional-component")
+
 
 /**
  * ReactDOM.render(element, container[, callback])
@@ -38,8 +38,9 @@ setInterval(timerRenderer,1000);
  * Functional component
  * JSX <TimerComp> will convert to TimerComp function ref
  */
+var sons = ["navin", "sandeep"]
 ReactDOM.render(
-  // <TimerComp name='nalina'><TimerComp/>, not parsed
-  <TimerComp name='nalina'/>, // parsed
+  // <FunComp name='nalina'><FunComp/>, not parsed
+  <FunCompComposed sons = {sons}/>, // parsed
   document.getElementById("react-functional-component")
 );
