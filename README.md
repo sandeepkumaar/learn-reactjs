@@ -274,3 +274,49 @@ React.render() method will render the react-element
 
 
 The above is illustrated in dom (id = 'react-root-render')
+
+
+### Step 7.1 Components - Functional component
+
+React allows you to create components in 3 ways
+[Three ways to create react components](https://medium.com/@the.benhawy/3-ways-to-create-react-components-8b3620e4ea0)
+
+
+we will use the functional way as it is simple and aligns with functional values  
+Understanding functional implementation of react components is simple  
+We know that,
+  - new object instance is received by returning an object literal
+  - ReactDOM.createElement() returns a new object instance
+
+
+Note:
+```
+React.createElement(
+  type,
+  [props],
+  [...children]
+)
+```
+type
+  - string // for declaring html tags
+  - function // that returns a react-elemt // for declaring components
+
+When using JSX, babel transpiler will need to differentiate between the
+**DOM** tags and **Cutom tags**
+For that if a tag name
+  - is in small letters // built-in dom
+  - Starts with capital // Custom DOM with a corresponding function ref of *same name*
+
+
+![Ref from React site](./resources/docs/component-name.png)
+
+![Ref from React site](./resources/docs/demo-component-name.png)
+
+So whenever a JSX with custom tag starting with capital letter is used babel
+transpiles them to functional reference.  
+The function in turn should **return a react-elemnt**
+
+![Babel Transforming Cumstom tags](./resources/docs/babel-jsx-custom-tag.png)
+
+
+### Step 7.2 Components - Stateful component

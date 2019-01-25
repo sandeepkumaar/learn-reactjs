@@ -5,11 +5,14 @@
  */
 
 const ReactDOM = require('react-dom');
+const React = require('react');
 
 // import
 const pureReactDiv = require('./pure-react');
 const jsxReactDiv = require('./jsx-react')
 const getTimerEl = require('./render')
+const TimerComp = require("./functional-component")
+console.log("timer", TimerComp);
 
 /**
  * ReactDOM.render(element, container[, callback])
@@ -30,3 +33,13 @@ const timerRenderer = function() {
 }
 // renders the timer for created timer elements
 setInterval(timerRenderer,1000);
+
+/**
+ * Functional component
+ * JSX <TimerComp> will convert to TimerComp function ref
+ */
+ReactDOM.render(
+  // <TimerComp name='nalina'><TimerComp/>, not parsed
+  <TimerComp name='nalina'/>, // parsed
+  document.getElementById("react-functional-component")
+);
