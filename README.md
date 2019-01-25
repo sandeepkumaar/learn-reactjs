@@ -330,3 +330,23 @@ reference
 
 #### Note:
 Functional components are pure functions. They dont modify the `props`
+
+
+### Stateful Components using Class
+Difference between State and Props
+Props are input arguments supplied to the component thru DOM attributes.
+States are ?
+
+Responsibility of a Component:
+- May have its own state. // state
+- behaviour // method
+- lifecycle hooks //
+- should update itself when state is updated. // setState
+- template // render
+
+
+Note:
+In two-way binding, the framework *itself* update the view, model during digest
+cycles triggered by framework methods.
+
+What makes a component to unmount?

@@ -9,10 +9,10 @@ const React = require('react');
 
 // import
 const pureReactDiv = require('./pure-react');
-const jsxReactDiv = require('./jsx-react')
-const getTimerEl = require('./render')
-const FunCompComposed = require("./functional-component")
-
+const jsxReactDiv = require('./jsx-react');
+const getTimerEl = require('./render');
+const FunCompComposed = require("./functional-component");
+const ClockClassComp= require("./class-component")
 
 /**
  * ReactDOM.render(element, container[, callback])
@@ -44,3 +44,12 @@ ReactDOM.render(
   <FunCompComposed sons = {sons}/>, // parsed
   document.getElementById("react-functional-component")
 );
+
+
+/**
+ * ES6 class Component
+ */
+ReactDOM.render(
+  <ClockClassComp/>,
+  document.getElementById("react-class-component")
+)
