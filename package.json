@@ -4,6 +4,7 @@
   "description": "A simple react app which demonstrates all the basic and the powerfull features without the unwanted dependencies",
   "main": "index.js",
   "dependencies": {
+    "create-react-class": "^15.6.3",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
   },

@@ -390,3 +390,14 @@ states which are not mentioned are left as such
 
 
 ### Stateful Components using ReactClass module
+- getDefaultProps
+- getInitialState
+- auto-binding
+
+
+
+
+Note: We know that Classes are nothing syntactic sugar for constructor functions
+Method Properties when using `this` will point to the context with which it is
+called.
+Class 

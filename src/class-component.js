@@ -1,6 +1,6 @@
 
 const React = require('react');
-const ReactDOM = require('react-dom');
+
 
 
 
@@ -64,10 +64,15 @@ class Clock extends React.Component {
   }
 }
 
+// default properties
+Clock.defaultProps = {
+  offset : 0
+}
+
 const ClockComposed = function ClockComposed(props) {
   return(
     <div>
-      <Clock offset={0}/>
+      <Clock/>
       <Clock offset={5}/>
     </div>
   )

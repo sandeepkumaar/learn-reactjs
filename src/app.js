@@ -12,7 +12,8 @@ const pureReactDiv = require('./pure-react');
 const jsxReactDiv = require('./jsx-react');
 const getTimerEl = require('./render');
 const FunCompComposed = require("./functional-component");
-const ClockClassComp= require("./class-component")
+const ClockClassComp = require("./class-component")
+const ClockReactClass = require("./reactClass-component")
 
 /**
  * ReactDOM.render(element, container[, callback])
@@ -49,7 +50,16 @@ ReactDOM.render(
 /**
  * ES6 class Component
  */
+// ReactDOM.render(
+//   <ClockClassComp/>,
+//   document.getElementById("react-class-component")
+// )
+
+
+/**
+ * ReactClass component
+ */
 ReactDOM.render(
-  <ClockClassComp/>,
-  document.getElementById("react-class-component")
+  <ClockReactClass/>,
+  document.getElementById("react-reactclass-component")
 )
