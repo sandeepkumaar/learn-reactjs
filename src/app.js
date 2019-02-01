@@ -14,7 +14,7 @@ const getTimerEl = require('./render');
 const FunCompComposed = require("./functional-component");
 const ClockClassComp = require("./class-component")
 const ClockReactClass = require("./reactClass-component")
-
+const ToggleButton = require("./handling-events")
 /**
  * ReactDOM.render(element, container[, callback])
  * @param element  react element got from react.createElement()
@@ -62,4 +62,13 @@ ReactDOM.render(
 ReactDOM.render(
   <ClockReactClass/>,
   document.getElementById("react-reactclass-component")
+)
+
+
+/**
+ * Event handling
+ */
+ReactDOM.render(
+  <ToggleButton/>,
+  document.getElementById("react-event")
 )

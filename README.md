@@ -379,6 +379,16 @@ this.setState((state, props) => ({
 
 How to assign default values to `props` and `states`
 
+
+#### Do Not Modify State Directly
+```
+this.state.name = "" //wont work
+```
+```
+this.state = { name: "" }
+// always update as a snapshot
+```
+
 #### State Updates are Merged // Object.assign()
 states which are not mentioned are left as such
 
@@ -397,7 +407,47 @@ states which are not mentioned are left as such
 
 
 
-Note: We know that Classes are nothing syntactic sugar for constructor functions
-Method Properties when using `this` will point to the context with which it is
-called.
-Class 
+### Handling events
+- React events are named using camelCase, rather than lowercase.
+- With JSX you pass a function as the event handler, rather than a string.
+```
+<button onclick="activateLasers()">Activate Lasers</button> // html
+
+<button onClick={activateLasers}>Activate Lasers</button> // jsx
+
+```
+
+Explicit `preventDefault()` to override default behaviour, returning false wont work
+
+event object - react specific *synthetic* event. follows w3c standards
+
+Note: We know that Classes are nothing but syntactic sugar for *constructor functions*
+`this` inside a class **method** will not be bound the *instance*. (react doesn't
+call them with `new` operator which binds this to *instance*)
+
+- Explicitly bind method properties // Class
+- use arrow functions // uses lexical scope
+- use reactClass module which automatically binds all method properties to the
+`instance`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Tools
+ternjs  // autocompletion
+lint on save?   // format, typos
+documentation // minimal
+snippets    //
+autocomplete package
+shortcuts
+file generation
