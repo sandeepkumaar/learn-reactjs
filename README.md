@@ -502,6 +502,17 @@ function displayMsg = function({messages}) {
 
 ```
 
+## List and Keys
+
+Two approaches
+- Define another Parent component to hold the list
+- Simply inline the iterations within the JSX
+
+### Keys
+- Makes react identify the list elements
+- should be unique
+- It is React specific hence should not be applied in dom elements
+
 
 
 
