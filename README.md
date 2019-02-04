@@ -407,7 +407,7 @@ states which are not mentioned are left as such
 
 
 
-### Handling events 
+### Handling events
 - React events are named using camelCase, rather than lowercase.
 - With JSX you pass a *function reference* as the event handler, rather than a string.
 ```
@@ -434,6 +434,82 @@ call them with `new` operator which binds this to *instance*)
 
 ### How to pass custom parameters to the function reference??
 By default react event pass in the *synthetic event* object to the callback
+
+We can pass the custom params through *currying* arrow functions
+
+
+## Conditional Rendering
+Since *JSX* is an expression, it can be assigned to a variables,
+treated as **operands** and can be *operated* by conditional operators
+
+Two things can happen at Conditional Rendering
+  - conditionally render an element // return the element thru conditional constructs
+  - conditionally don't render an element // return false
+
+
+Conditions can happen at two places
+- parent deciding which component to render
+- component itself can decide whether to render or not based on props supplied
+// component returning false instead or an element
+
+Point 2 is similar to ng-if
+
+Note: JSX expression can have *expressions* {} in them that can have
+  - mathematical expressions
+  - another jsx expression
+
+
+```
+// parent deciding what to render
+const Parent = function(props) {
+  const { bool } = props;
+
+
+  let el1 = <h1>sandeep</h1>
+  let el2 = <div>navin</div>
+
+  return bool ? el1 : el2
+
+}
+
+const Parent = function(props) {
+  const { messages } = props;
+
+  return (
+    <div>
+      <h1>Hello!</h1>
+      {messages.length > 0 &&
+        <h2>
+          You have {messages.length} unread messages.
+        </h2>
+      }
+    </div>
+    )
+}
+
+// component itself decides based on passed in props
+function displayMsg = function({messages}) {
+  if(!messages.length) {
+    return null;
+  };
+
+  return (
+    <h2>
+      You have {messages.length} messages.
+    </h2>
+    )
+}
+
+```
+
+
+
+
+
+
+
+
+
 
 
 
