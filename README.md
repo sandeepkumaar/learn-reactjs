@@ -514,6 +514,41 @@ Two approaches
 - It is React specific hence should not be applied in dom elements
 
 
+## Forms
+How HTML form elements work ?
+**form elements** have value attribute that gets *updated* by the browser
+whenever the user types.
+Here two things happen
+  - data is *handled* by the DOM // internal impl
+  - data is stored by the DOM // value attribute
+
+Basically we need have control over how *updates* are handled and
+how we can manage the data(state)
+
+We need React to be the source of truth. ie. control should passl from
+DOM to React.
+
+To do so, React has
+   - value *state* that is bound to the DOM value *attribute*
+   - onChange *handler* to update the value state which in turn updates the
+   DOM value attribute  
+
+The above approach makes the Form element a **Controlled Component**
+A form element controlled by the React component
+
+For uniformness all React form elements have two properties to operate
+  - value
+  - onChange
+
+**Uncontrolled Components** which lets DOM to maintain state, when react simply
+gets the value on Submit. With this approach
+  - we can rely only on browsers features
+  - less controll over elements
+
+React advices us to avoid **uncontrolled** components
+
+
+
 
 
 
