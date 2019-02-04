@@ -407,9 +407,9 @@ states which are not mentioned are left as such
 
 
 
-### Handling events
+### Handling events 
 - React events are named using camelCase, rather than lowercase.
-- With JSX you pass a function as the event handler, rather than a string.
+- With JSX you pass a *function reference* as the event handler, rather than a string.
 ```
 <button onclick="activateLasers()">Activate Lasers</button> // html
 
@@ -432,6 +432,17 @@ call them with `new` operator which binds this to *instance*)
 
 
 
+### How to pass custom parameters to the function reference??
+By default react event pass in the *synthetic event* object to the callback
+
+
+
+
+Note:
+Use `arrow functions` when you want `this` to refer to the containing scope/
+lexical scope
+Use `Named function expressions` when you u planning to use it as a util/
+algorithm implementation that gets differenct **contexts**
 
 
 
@@ -440,6 +451,20 @@ call them with `new` operator which binds this to *instance*)
 
 
 
+## best practice
+- destructure props
+- Use more presentation/functional components
+- less state components
+
+createReactClass, factory, hooks -- middle ground
+
+Handling events
+Conditional Rendering
+List and Keys
+Forms
+Lifting state up
+composition vs inheritance
+Thinking in react
 
 
 

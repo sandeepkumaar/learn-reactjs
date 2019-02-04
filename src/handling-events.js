@@ -9,26 +9,27 @@ const ToggleButton = createReactClass({
   // initial state
   getInitialState: function getInitialState() {
     return {
-      isToggleOn: false
+      // isToggleOn: false
     };
   },
 
   // component hooks
 
   // events
-  handleClick: function handleClick() {
+  handleClick: function handleClick(e) {
+    console.log('synthetic event', e);
     // this is implicitly bound to the instace
     // by reactClass method
-    this.setState((state) => ({
-      isToggleOn: !state.isToggleOn
-    }));
+    // this.setState((state) => ({
+    //   isToggleOn: !state.isToggleOn
+    // }));
   },
 
   // render
   render: function render() {
     return (
       <div>
-        
+        <button onClick={this.handleClick}>EventHandler</button>
       </div>
     );
   }
