@@ -548,7 +548,23 @@ gets the value on Submit. With this approach
 React advices us to avoid **uncontrolled** components
 
 
+## Lifting State Up
 
+Lifting the **Shared State** up to the closest ancestor(Parent component)
+
+Shared State: A state shared by child components in a Parent component
+Any change made to the shared state by any of the child components are
+reflected to all other child components
+
+Note:
+**Props** are read-only. A functional component with props cannot *directly*
+modify the prop state.
+They call the stateHandler function supplied by the parent component as props.
+
+U can treat this state updation similar to form element updation.
+value, onChange()
+This approach is called **Controlled Component** component's *state* are
+controlled by the Parent component
 
 
 
