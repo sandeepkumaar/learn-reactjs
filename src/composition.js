@@ -1,8 +1,8 @@
 const React = require('react');
 
 const FancyBorder = function FancyBorder(props) {
-  // no child property, when jsx transpiles
-  console.log('FancyBorder', props.children); // undefined, undeclared
+
+  console.log('FancyBorder', props.children); // child element
   let style = { border: "1px solid green"};
   return (
     <div style= { style }>
@@ -16,7 +16,7 @@ const Box = function Box(props) {
   console.log('Box', props);
   return (
     <FancyBorder>
-
+      child element
     </FancyBorder>
   )
 }
