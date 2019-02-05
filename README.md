@@ -566,6 +566,72 @@ value, onChange()
 This approach is called **Controlled Component** component's *state* are
 controlled by the Parent component
 
+## Composition
+Composing *independent* functions together to form a Complex function.
+Function as building blocks
+
+h = f.g = f(g(x))
+g(x) | f(x)  
+output of g is fed as input of f
+
+In React, Component **composition** is done by passing the component as the
+*input* for another component. The input is *rendered*(output) and passed as
+input to composing component which will render along with ....tl;
+
+
+Note:
+props is available in the js world, meaning it can handle any type values as
+inputs.
+Hence we can send props as *function* and *objects*. Since *ReactElement* is
+simply an js object we can simply pass them as props
+
+We know that **props** hold the properties defined as attribute on the **component**
+Along with props expose other properties.
+- prop.children // has the child element of the component
+
+React component composition can happen by simply passing the React component/element
+as props(input). props can be either
+  - child
+  - attribute on the component
+
+
+
+
+
+
+```
+
+// composing component
+function FancyBorder(props) {
+  return (
+    <div className={'FancyBorder FancyBorder-' + props.color}>
+      {props.children}
+    </div>
+  );
+}
+
+// FancyBorder component is *ready* to compose with any independent component
+// To actually compose, we declare the input component inside FancyBorder. f(g(x))
+
+// ideally g(x) should not have access to f(x)
+// can f(x) pass in the props ??
+
+//
+function WelcomeDialog() {
+  return (
+    <FancyBorder color="blue">
+      <h1 className="Dialog-title">
+        Welcome
+      </h1>
+      <p className="Dialog-message">
+        Thank you for visiting our spacecraft!
+      </p>
+    </FancyBorder>
+  );
+}
+
+```
+
 
 
 
