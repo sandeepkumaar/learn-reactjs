@@ -23,10 +23,10 @@ const Box = function Box(props) {
     )
   }
 
-
+  let parentContent = "Im a state from FancyBorder"
   return (
     <FancyBorder attr={ <AttribComp/> }>
-      child element
+      child element { parentContent }
     </FancyBorder>
   )
 }

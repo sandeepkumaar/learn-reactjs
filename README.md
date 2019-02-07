@@ -567,6 +567,16 @@ This approach is called **Controlled Component** component's *state* are
 controlled by the Parent component
 
 ## Composition
+
+Component composition is similar to Object composition.
+A factory function which takes arguments and compose them
+to return a new composed object
+
+
+Component composition also follow the same,
+factory =>  Box
+component =>
+
 Composing *independent* functions together to form a Complex function.
 Function as building blocks
 
@@ -634,6 +644,147 @@ function WelcomeDialog() {
 
 
 
+
+
+## Thinking in React
+
+### Break the UI into a component heirarchy
+### Build a static version in react
+### Identify the minimal (but complete) representation of UI State
+### Identify where your state should live
+### Add inverse data flow
+
+
+## Context
+
+> Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+
+
+## Fragments
+Group list of children without adding extra nodes to the DOM
+```
+<React.Fragment key={}>
+</React.Fragment>
+```
+only **key** attribute can be set in a **fragment** element
+
+
+## Higher Order components
+Reusing component logic
+
+HOC is a *function* that takes a component and returns a component
+
+
+HOC doesn't modify the input component, nor does it uses inheritance
+to *copy* its behaviour
+
+HOC *composes* the original component by *wrapping* it in a container
+component.
+
+A HOC is a pure function with zero side effects
+
+The wrapped component receives all the props of the *container*, along
+with a new prop, data , which it uses to render.
+
+HOC isn't concerned with how or why, who?? the data is used.
+
+And the wrapper component isn't concerned with where the data came from.
+
+
+HOC is a normal function, where you can pass any arguments
+Eg:
+- make the attribute name on the component configurable
+- configures data source
+
+Since every composition is prop-based,
+it is easy to swap one HOC for a different one, as long as they provide the same props to the wrapped component.
+
+HOCs should use composition, by wrapping the input component in a container component:
+
+Containers manage things like subscriptions and state, and pass props to components that handle things like rendering UI
+
+You may have noticed similarities between HOCs and a pattern called container components.
+
+HOCs use containers as part of their implementation. You can think of HOCs as parameterized container component definitions.
+
+
+
+HOCs add features to a component. They shouldn’t drastically alter its contract. It’s expected that the *component returned from a HOC* has a **similar interface** to the *wrapped component.*
+
+HOCs should pass through props that are unrelated to its specific concern.
+
+This makes the returned component behave like the wrapped component
+
+Convention:
+#### Pass Unrelated Props Through to the Wrapped Component
+
+#### Maximizing composability
+
+#### Wrap the Display Name for Easy Debugging
+
+Caveats:
+
+Don’t Use HOCs Inside the render Method
+Static Methods Must Be Copied Over
+  - prototype properties
+Refs Aren’t Passed Through
+
+
+Mixins vs HOC vs Render props
+
+
+## Render props
+
+
+
+A Render prop is a *function as a prop* that the component uses
+to know *what to render*
+
+
+just render a regular component with a function prop that it can use to share
+some state/behaviour with you
+
+The term “render prop” refers to a technique for sharing code between
+React components using a prop whose value is a function.
+
+
+
+Some recap:
+Wkt, a component consists of
+  - template
+  - state and behaviour modifying state
+  // react takes care of rendering  the modified state automatically
+  - utils - pure functions, no state info (more info)
+
+
+When we say, code reuse, we mean reusing
+  - template
+  - state and behaviour
+  - util. (this is by default reusable)
+
+Code reuse in React is mainly done through *Composition*.
+Basically composition of Templates, state&behaviours is achieved by passing
+them as *arguments* (props)
+
+components allow *entities* to exists **independent and isolated** and can
+compose with other entities without really knowing about the composing entity.
+Component are *component agnostic*
+
+We have `MouseTracker` component that has
+  - a template // area where mouse movement is tracked
+  - state-behaviour // state and logic to track mouse
+
+Template will use the *MouseTrackBehaviour* (state and behaviour)
+React will take of rendering the modified state.
+
+Here `MouseTracker`, Area Template and Track Behaviour are *declared* together
+They are also tightly coupled thru `this` operator.
+
+
+Next steps:
+Slowly decouple Area Template and Track Behavior
+Make them independent, isolate entities
+Compose them with other entities to *extend* the behaviour
 
 
 

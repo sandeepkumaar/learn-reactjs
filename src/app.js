@@ -9,12 +9,8 @@ const React = require('react');
 
 // import
 const pureReactDiv = require('./pure-react');
-const jsxReactDiv = require('./jsx-react');
-const getTimerEl = require('./render');
-const FunCompComposed = require("./functional-component");
-const ClockClassComp = require("./class-component")
-const ClockReactClass = require("./reactClass-component")
-const ToggleButton = require("./handling-events")
+
+
 
 
 /**
@@ -23,35 +19,39 @@ const ToggleButton = require("./handling-events")
  * @param container DOM node where the element has to render
  * @param callback function that is called when element is rendered on the page
  */
-ReactDOM.render(
-  jsxReactDiv,
-  document.getElementById('react-root')
-);
+// const jsxReactDiv = require('./jsx-react');
+// ReactDOM.render(
+//   jsxReactDiv,
+//   document.getElementById('react-root')
+// );
 
-const timerRenderer = function() {
-  ReactDOM.render(
-    getTimerEl(),
-    document.getElementById("react-root-render")
-  );
-}
+// const getTimerEl = require('./render');
+// const timerRenderer = function() {
+//   ReactDOM.render(
+//     getTimerEl(),
+//     document.getElementById("react-root-render")
+//   );
+// }
 // renders the timer for created timer elements
-setInterval(timerRenderer,1000);
+// setInterval(timerRenderer,1000);
 
 /**
  * Functional component
  * JSX <TimerComp> will convert to TimerComp function ref
  */
-var sons = ["navin", "sandeep"]
-ReactDOM.render(
-  // <FunComp name='nalina'><FunComp/>, not parsed
-  <FunCompComposed sons = {sons}/>, // parsed
-  document.getElementById("react-functional-component")
-);
+// const FunCompComposed = require("./functional-component");
+// var sons = ["navin", "sandeep"]
+// ReactDOM.render(
+//   // <FunComp name='nalina'><FunComp/>, not parsed
+//   <FunCompComposed sons = {sons}/>, // parsed
+//   document.getElementById("react-functional-component")
+// );
 
 
 /**
  * ES6 class Component
  */
+// const ClockClassComp = require("./class-component")
 // ReactDOM.render(
 //   <ClockClassComp/>,
 //   document.getElementById("react-class-component")
@@ -61,26 +61,38 @@ ReactDOM.render(
 /**
  * ReactClass component
  */
-ReactDOM.render(
-  <ClockReactClass/>,
-  document.getElementById("react-reactclass-component")
-)
+// const ClockReactClass = require("./reactClass-component")
+// ReactDOM.render(
+//   <ClockReactClass/>,
+//   document.getElementById("react-reactclass-component")
+// )
 
 
 /**
  * Event handling
  */
-ReactDOM.render(
-  <ToggleButton/>,
-  document.getElementById("react-event")
-)
+// const ToggleButton = require("./handling-events")
+// ReactDOM.render(
+//   <ToggleButton/>,
+//   document.getElementById("react-event")
+// )
 
 
 /**
  * Composition
  */
-const ComposeBox = require('./composition');
+// const ComposeBox = require('./composition');
+// ReactDOM.render(
+//   <ComposeBox/>,
+//   document.getElementById("react-composition")
+// )
+
+
+/**
+ * render props
+ */
+const MouseTracker = require('./render-prop');
 ReactDOM.render(
-  <ComposeBox/>,
-  document.getElementById("react-composition")
+  <MouseTracker/>,
+  document.getElementById('react-render-props')
 )
