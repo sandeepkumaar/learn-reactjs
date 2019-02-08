@@ -91,8 +91,31 @@ const pureReactDiv = require('./pure-react');
 /**
  * render props
  */
-const MouseTracker = require('./render-prop');
+// const MouseTracker = require('./render-prop');
+// ReactDOM.render(
+//   <MouseTracker/>,
+//   document.getElementById('react-render-props')
+// )
+
+
+/**
+ * Simple Stateful component
+ */
+const { SandeepArea, NavinArea }  = require('./composition/simple-component');
+const Area = function Area() {
+  return (
+    <div>
+      <div className="gutter">
+        <SandeepArea></SandeepArea>
+      </div>
+      <div className="gutter">
+        <NavinArea></NavinArea>
+      </div>
+
+    </div>
+  )
+}
 ReactDOM.render(
-  <MouseTracker/>,
-  document.getElementById('react-render-props')
+ <Area/>,
+ document.getElementById('react-render-props')
 )

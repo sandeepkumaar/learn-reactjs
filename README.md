@@ -782,10 +782,12 @@ They are also tightly coupled thru `this` operator.
 
 
 Next steps:
-Slowly decouple Area Template and Track Behavior
+Slowly decouple Area Template and Track Behaviour
 Make them independent, isolate entities
 Compose them with other entities to *extend* the behaviour
 
+
+Decouple
 
 
 
@@ -831,3 +833,66 @@ snippets    //
 autocomplete package
 shortcuts
 file generation
+
+
+
+
+```
+
+/**
+ * Without reusability
+ */
+
+/**
+ * Step 1:
+ */
+
+function Sandeep(prop) {
+  return "sandeep" + prop
+}
+
+function Navin(prop) {
+  return "Navin" + prop
+}
+
+
+function Mouse(prop) {
+  return "Mouse" + prop
+}
+
+function SandeepMouse() {
+  return Sandeep("x") + Mouse("")
+}
+SandeepMouse();
+
+function NavinMouse() {
+  return Navin("y") + Mouse()
+}
+NavinMouse();
+
+
+
+/**
+ * Composition thru props
+ * By nature, every function is composable thru props
+ * it is just the function should handle the prop correctly
+ */
+
+
+function Mouse(prop, comp) {
+  return "Mouse" + prop + comp
+}
+
+function Sandeep(prop) {
+  return "sandeep" + prop
+}
+
+
+let sandeep = Sandeep('x')
+// composing
+let sandeepMouse = ComposableMouse('prop', sandeep)
+
+/**
+ *
+ */
+```
