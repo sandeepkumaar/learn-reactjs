@@ -104,6 +104,24 @@ const h = (span) => {
 
 ## Component composition: Declarative
 
+```
+(
+  <Border el={
+    <Heading el= {el}/>
+  }/>
+);
+
+```
+The above code, first add heading and then border.
+But when reading, it looks like Border and Heading. Order reversed.
+
+This is similar to function composition. where the order is reversed.
+For this we can use `compose/pipe` utils that will maintain the order
+
+More on them later.
+
+
+
 
 
 

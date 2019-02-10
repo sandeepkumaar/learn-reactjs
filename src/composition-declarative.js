@@ -5,7 +5,7 @@ const React = require('react');
  * converts to heading
  * return the elem
  */
-const Heading = function Heading(el) {
+const Heading = function Heading({el}) {
   return(
     <h1 className='heading'>
       { el }
@@ -18,7 +18,7 @@ const Heading = function Heading(el) {
  * add border
  * returns the RE
  */
-const Border = function Border(el) {
+const Border = function Border({el}) {
   return(
     <div className='border-bottom'>
       { el }
@@ -29,8 +29,13 @@ const Border = function Border(el) {
 /**
  * Compose Heading and border
  */
-const HeadingWithBorder = function HeadingWithBorder(el) {
-  return Border(Heading(el)); // imperative
+const HeadingWithBorder = function HeadingWithBorder({el}) {
+
+  return (
+    <Border el={
+      <Heading el= {el}/>
+    }/>
+  );
 }
 
 
