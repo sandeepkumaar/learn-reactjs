@@ -7,8 +7,17 @@
 const ReactDOM = require('react-dom');
 const React = require('react');
 
-// import
-const pureReactDiv = require('./pure-react');
+
+/**
+ * RR takes a RE to render in the DOM
+ */
+const reactElement = require('./pure-react');
+ReactDOM.render(
+  reactElement,
+  document.getElementById('react-root')
+);
+
+
 
 
 
@@ -101,21 +110,36 @@ const pureReactDiv = require('./pure-react');
 /**
  * Simple Stateful component
  */
-const { SandeepArea, NavinArea }  = require('./composition/simple-component');
-const Area = function Area() {
-  return (
-    <div>
-      <div className="gutter">
-        <SandeepArea></SandeepArea>
-      </div>
-      <div className="gutter">
-        <NavinArea></NavinArea>
-      </div>
+// const { SandeepArea, NavinArea }  = require('./composition/simple-component');
+// const Area = function Area() {
+//   return (
+//     <div>
+//       <div className="gutter">
+//         <SandeepArea></SandeepArea>
+//       </div>
+//       <div className="gutter">
+//         <NavinArea></NavinArea>
+//       </div>
+//
+//     </div>
+//   )
+// }
+// ReactDOM.render(
+//  <Area/>,
+//  document.getElementById('react-render-props')
+// )
 
-    </div>
-  )
-}
-ReactDOM.render(
- <Area/>,
- document.getElementById('react-render-props')
-)
+/**
+ * Composition thru props
+ */
+
+// const { Mouse, SandeepArea } = require('./composition/composition-props');
+// ReactDOM.render(
+//   <div>
+//     <Mouse>
+//       <SandeepArea></SandeepArea>
+//     </Mouse>
+//
+//   </div>,
+//   document.getElementById('react-composition-props')
+// )

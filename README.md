@@ -1,6 +1,5 @@
-===========================
 # Reactjs
-===========================
+
 On the launch page of Reactjs we can see
  - Declarative
  - Components
@@ -250,6 +249,7 @@ function getHeading(bool) {
 We have illustrated all the possible expressions applied on JSX  
 
 > Note: JSX boils down to React.createElement() call which returns a simple object
+ie A ReactElement - immutable
 
 > Info: JSX Prevents Injection Attacks
 
@@ -314,7 +314,7 @@ For that if a tag name
 
 So whenever a JSX with custom tag starting with capital letter is used babel
 transpiles them to functional reference.  
-The function in turn should **return a react-elemnt**
+The function in turn should **return a react-element**
 
 ![Babel Transforming Cumstom tags](./resources/docs/babel-jsx-custom-tag.png)
 
