@@ -10,13 +10,15 @@ const React = require('react');
 
 /**
  * RR takes a RE to render in the DOM
+ * RE returned by RCE
+ * RCE = JSX
  */
-const reactElement = require('./pure-react');
+// const reactElement = require('./react-element-pure');
+const reactElement = require('./react-element-jsx');
 ReactDOM.render(
   reactElement,
   document.getElementById('react-root')
 );
-
 
 
 

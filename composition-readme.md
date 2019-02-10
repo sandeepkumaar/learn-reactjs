@@ -1,5 +1,9 @@
 ## Quick Recap
 
+RR = ReactDOM.render()
+RCE = React.createElement()
+RE = object returned by RCE
+
 ### RE and RR
 
 `React.render()` takes a `ReactElement` object to render
@@ -7,23 +11,27 @@
 ReactElement is an **immutable object**. Meaning once the
 object is created, its properties cannot be modified.
 
-To update the element, we need to create a new RE and
-pass to RR
+To update the element, we need to create a new RE and pass to RR
 
 RE is created from `React.createElement()` RCE function
 
 
-### RCE and JSX with properties
+### RCE = JSX with properties
 
 JSX = RCE
 
-```
-const heading = <h1 id="heading-4"> { name }</h1>;
-heading; // RE
-```
-
 Both JSX and RCE returns the RE which the render function
 needs
+
+
+### RCE with functions
+To create REs(objects) with different properties, we wrap them
+in a function that returns RE
+
+ 
+
+
+
 
 RCE takes two types of arguments
   - string // for built-in DOM

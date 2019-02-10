@@ -8,7 +8,7 @@ const React = require('react');
  * @param properties DOM Attributes
  * @param child // innerHTML
  */
-const name = 'Navin Kumar';
+const name = 'Pure - Navin Kumar';
 const reactElement = React.createElement(
   'h1', // type
   {id:'heading-4'}, // properties
