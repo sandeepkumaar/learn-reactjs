@@ -47,21 +47,42 @@ const getReactElement = require('./rce-within-function');
  * ReactComponent
  *
  **************************************************/
-const ReactComponent = require('./functional-component');
+// const ReactComponent = require('./functional-component');
+// // ReactDOM.render(
+// //   document.getElementById('react-root')
+// // )
 // ReactDOM.render(
+//   <div>
+//     { ReactComponent({name: "imperative-sandeep"}) }
+//     <ReactComponent name="declarative-sandeep"></ReactComponent>
+//   </div>,
 //   document.getElementById('react-root')
 // )
+
+
+/***************************************************
+ * Component composition: Imperative
+ **************************************************/
+const HeadingWithBorder = require('./composition-imperative');
+const textEl = (<span>Sandeep</span>)
 ReactDOM.render(
-  <div>
-    { ReactComponent({name: "imperative-sandeep"}) }
-    <ReactComponent name="declarative-sandeep"></ReactComponent>
-  </div>,
+  HeadingWithBorder(textEl),
   document.getElementById('react-root')
 )
 
 
-
-
+/***************************************************
+ * Component composition: Declarative
+ **************************************************/
+// const HeadingWithBorder = require('./composition-declarative');
+// // const textEl = (<span>Sandeep</span>)
+// ReactDOM.render(
+//   <HeadingWithBorder>
+//     <span>Sandeep</span>
+//
+//   </HeadingWithBorder>,
+//   document.getElementById('react-root')
+// )
 
 
 

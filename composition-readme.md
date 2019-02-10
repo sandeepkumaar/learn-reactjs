@@ -24,7 +24,7 @@ Both JSX and RCE returns the RE which the render function
 needs
 
 
-### RCE with functions
+### RCE within functions
 To create REs(objects) with different properties, we wrap them
 in a function that returns RE
 
@@ -69,7 +69,43 @@ This makes JSX to be declared multiple times, each returning a
 ReactElement with props composed
 
 
-## Reusable components
+## Component composition: Imperative
+
+`props` can be anything from primitive, objects and even functions
+
+We can compose components, by passing RE as a prop to another component
+
+
+```
+// take a number
+// multiply by 10
+// add 2
+
+const f = (n) => (n * 10)
+const g = (n) => (n + 2)
+
+const h = (n) => {
+  return g(f(n))
+}
+
+// take a span elem
+// convert it a heading
+// add border bottom
+
+const f= (el) => (heading-with-el)
+const g = (el) => (border-with-el)
+
+const h = (span) => {
+  return g(f(span))
+}
+
+```
+
+
+## Component composition: Declarative
+
+
+
 
 HOC
 render-props
