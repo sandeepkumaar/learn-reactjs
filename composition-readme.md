@@ -28,37 +28,66 @@ needs
 To create REs(objects) with different properties, we wrap them
 in a function that returns RE
 
- 
+Note: params are destructured. You can also send primitive params
+
+Here we need to invoke the function *imperatively*.
+`getReactElement({name: "Navin"})`
+RCE provides us a convenient way to achieve the same *declaratively* through
+JSX
 
 
 
+### Functional Components
+A `Component` is a function that returns a RE!
 
-RCE takes two types of arguments
+Like previously said, RCE allows us to code components declaratively
+```
+{ ReactComponent({name: "imperative-sandeep"}) }
+
+<ReactComponent name="declarative-sandeep"></ReactComponent>
+```
+Both are equal. yeilds the same result.
+
+This is becaues,
+RCE/JSX takes two types of arguments
   - string // for built-in DOM
   - function // custom tag/ component
 
-A `Component` is a function that returns a RE
-Since its a function, it can take arguments that can set the properties of the
-RE at creation time
+RCE will invoke the *function* with the *props* supplied and returns an RE
 
-```
-// Component is a function that returns a RE
+Declarative JSX will convert to
 
-function Comp() {
-  return (
-    <p className='para'>sandeep</p>
-  );
-}
+![rce-function-input](./resources/docs/rce-function-input.png)
 
-// RR needs a RE to render
+`ReactComponent` function is invoked with `{ name: "declarative-sandeep"}` as
+arguments/props and returns a new RE with the props composed.
 
-ReactDOM.render(
-  Comp(),
-  document.getElementById('root')
+The combination of RCE taking a function and capability of JSX tags referencing
+the function leads us to write *declarative* syntax
 
-)
+This makes JSX to be declared multiple times, each returning a
+ReactElement with props composed
 
-```
+
+## Reusable components
+
+HOC
+render-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Component can be called multiple times with different arguments, just like
 functions. each returning an RE.
@@ -90,4 +119,7 @@ Wrapping a RCE() within a function is seen as a process of
 ### Context
 
 
-### Reusable states
+
+### Reusable states, hooks
+
+### services, singleton, dependency injection

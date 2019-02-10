@@ -1,27 +1,20 @@
 
 const React = require('react');
 
+
+
+
+
 /**
- * [props] refers to the data-attributes supplied to the
- * component tag
+ * ReactComponent function takes an object as parameter
+ * returns a RE
  */
-const FunComp  = function FunComp (props) {
-  // console.log("Timer properties", props);
-  return(
-    <h1>{props.name}</h1>
-  );
-}
-
-const FunCompComposed = function FunCompComposed(props) {
-  console.log("FunCompComposed properties", props);
+const ReactComponent = function ReactComponent({name}) {
   return (
-    <div>
-    <FunComp name="nalina"/>
-    <FunComp name={props.sons[0]}/>
-    <FunComp name={props.sons[1]}/>
-    </div>
+    <h1 className='heading'> { name }</h1>
   );
 }
 
 
-module.exports =  FunCompComposed;
+
+module.exports =  ReactComponent;

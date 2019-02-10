@@ -8,17 +8,60 @@ const ReactDOM = require('react-dom');
 const React = require('react');
 
 
-/**
+/***************************************************
  * RR takes a RE to render in the DOM
  * RE returned by RCE
  * RCE = JSX
- */
+ ***************************************************/
 // const reactElement = require('./react-element-pure');
-const reactElement = require('./react-element-jsx');
+// // const reactElement = require('./react-element-jsx');
+// ReactDOM.render(
+//   reactElement,
+//   document.getElementById('react-root')
+// );
+
+
+
+
+/***************************************************
+ * RCE enclosed within function
+ *
+ **************************************************/
+const getReactElement = require('./rce-within-function');
+// ReactDOM.render(
+//   getReactElement({name: "Navin"}),
+//   document.getElementById('react-root')
+// );
+
+// ReactDOM.render(
+//   <div>
+//     { getReactElement({name: "Navin"}) }
+//     { getReactElement({name: "Sandeep"}) }
+//   </div>,
+//   document.getElementById('react-root')
+// );
+
+
+
+/***************************************************
+ * ReactComponent
+ *
+ **************************************************/
+const ReactComponent = require('./functional-component');
+// ReactDOM.render(
+//   document.getElementById('react-root')
+// )
 ReactDOM.render(
-  reactElement,
+  <div>
+    { ReactComponent({name: "imperative-sandeep"}) }
+    <ReactComponent name="declarative-sandeep"></ReactComponent>
+  </div>,
   document.getElementById('react-root')
-);
+)
+
+
+
+
 
 
 

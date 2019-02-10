@@ -3,10 +3,10 @@ const React = require('react');
 
 
 /**
- * React.createElement(type, [properties], [...nested/child react-elements])
+ * React.createElement(type, [props], [...children])
  * @param type [string] [function]
- * @param properties DOM Attributes
- * @param child // innerHTML
+ * @param props DOM Attributes
+ * @param children // innerHTML
  */
 const name = 'Pure - Navin Kumar';
 const reactElement = React.createElement(
