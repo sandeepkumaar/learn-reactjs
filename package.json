@@ -17,8 +17,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:js": "browserify src/app.js -t babelify > dist/bundle.js -d",
-    "watch:js": "watchify src/app.js -t babelify -o dist/bundle.js -dv",
+    "build:js": "browserify src/index.js -t babelify > dist/bundle.js -d",
+    "watch:js": "watchify src/index.js -t babelify -o dist/bundle.js -dv",
     "watch": "npm run watch:js"
   },
   "keywords": [
