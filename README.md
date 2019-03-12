@@ -194,3 +194,13 @@ Adding *props* to `Route` will not work. The router simply ignores it.
 Instead use the **render** prop of the `Route` which can take a *render function*
 
 https://tylermcginnis.com/react-router-pass-props-to-components/
+
+
+## Navigate from DOM and JS
+
+Use
+<Link>    https://reacttraining.com/react-router/web/api/Link
+<NavLink> https://reacttraining.com/react-router/web/api/NavLink
+
+For js,
+history.push('/')
