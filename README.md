@@ -108,4 +108,37 @@ Hence Routes and app components are wrapped in a container
 3. Route component can be nested anywhere inside components. They will render
 when the route path matches.
 
-## Dynamic Routing
+## React router - default routing behaviour
+when
+path = /
+renders = Comp_1
+
+when
+path = /about
+renders = Comp_1, Comp_2
+
+This behaviour is as per design. This kind of behaviour is useful for
+*component with nested routes*
+Where,
+the **parent** component `path = '/topics'` containing **child** components
+whose route's path will be `path = '/topics/child1'`
+Typical scenario is *tabbed components*
+```
+<tab-container>
+  <tabs>
+    // list of tab button
+    // onClick will append the url  /topic/maths
+  </tabs>
+  <tab-content>
+    // loads components based on url.
+  </tab-content>
+</tab-container>
+```
+
+https://github.com/ReactTraining/react-router/issues/4958#issue-221145980
+https://github.com/ReactTraining/react-router/issues/4958#issuecomment-293613721
+https://github.com/ReactTraining/react-router/issues/4958#issuecomment-293635950
+
+Lets look at this later on how to handle such conditions.
+
+## Every Route is assumed to have child routes
