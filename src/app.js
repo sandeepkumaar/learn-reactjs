@@ -2,9 +2,24 @@ import React from 'react'
 import { HashRouter as Router, Route, Switch, Link } from 'react-router-dom'
 
 
-const Maths = () => ( <div>Maths</div>)
-const Eng = () => ( <div>English</div>)
-const Topics = () => {
+const Maths = (props) => {
+  console.log('Maths', props);
+  return (<div>Maths</div>)
+}
+
+const Eng = (props) => {
+  console.log("Eng", props);
+  return ( <div>English</div>)
+}
+
+const Tamil = (props) => {
+  console.log("Tamil", props);
+  return ( <div>Tamil</div>)
+}
+
+
+const Topics = (props) => {
+  console.log('Topics',props);
   return (
     <div>
       <h3>Topics</h3>
@@ -18,6 +33,7 @@ const Topics = () => {
       <Switch>
         <Route exact path="/topics/math" component={Maths}></Route>
         <Route exact path="/topics/eng" component={Eng}></Route>
+        <Route path="/topics/tamil/:mark" component={Tamil}></Route>
       </Switch>
     </div>
 

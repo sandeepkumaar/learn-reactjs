@@ -175,3 +175,16 @@ The unmatched `<Route>` will render **null**.
 neglects other routes. Similar to js switch case.
 
 Lets add switch to topics/childs
+
+## Router props with params
+Router props are supplied to `Route component`. The component will have the
+following props
+- history // mutable, use to change urls.
+- location
+  - pathName  // has the complete url supplied to browser
+  - search    // query param
+- match
+  - path      // component path
+  - url       // matched url . Usually path = url
+  - params    // route params //:mark
+- staticContext
