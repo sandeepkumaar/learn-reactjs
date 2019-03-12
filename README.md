@@ -142,3 +142,25 @@ https://github.com/ReactTraining/react-router/issues/4958#issuecomment-293635950
 Lets look at this later on how to handle such conditions.
 
 ## Every Route is assumed to have child routes
+/topics
+/topics/math
+/topics/eng
+
+All the above urls says, Topic component having Child components which are
+rendered based on url.
+This is handled automatically. Assuming every *route component* may have *child routes*
+
+when
+/topics/math/asf/asdf
+Will still render the `Maths` component.
+This should ideally
+- not render the Maths component
+- Display a `resource not found message`
+
+Having `exact` on all child routes will makes sure that some arbitrary url
+starting with `topics/math` will render `math` component
+
+In otherwords, `exact` says the component will not have *child routes* or
+routes that would follow. When react finds it will not look into the nested
+elements for path match.
+The Router wont render/avoid even if the Component is declared with child routes.
