@@ -164,3 +164,14 @@ In otherwords, `exact` says the component will not have *child routes* or
 routes that would follow. When react finds it will not look into the nested
 elements for path match.
 The Router wont render/avoid even if the Component is declared with child routes.
+
+
+## Routes with switch
+When `<Route>`s are defined in a container, all of them are  *evaluated* even
+though the `path`s dont match.
+The unmatched `<Route>` will render **null**.
+
+`<Switch>` will simple returns the first `<Route>` whose path is matched and
+neglects other routes. Similar to js switch case.
+
+Lets add switch to topics/childs
