@@ -16,7 +16,10 @@ const Tamil = (props) => {
   console.log("Tamil", props);
   return ( <div>Tamil</div>)
 }
-
+const Sci = (props) => {
+  console.log("Sci", props);
+  return ( <div>Scient with {props.custom}</div>)
+}
 
 const Topics = (props) => {
   console.log('Topics',props);
@@ -34,6 +37,10 @@ const Topics = (props) => {
         <Route exact path="/topics/math" component={Maths}></Route>
         <Route exact path="/topics/eng" component={Eng}></Route>
         <Route path="/topics/tamil/:mark" component={Tamil}></Route>
+        <Route
+          path="/topics/sci"
+          render={(props) => <Sci {...props} custom='customPropery'></Sci>}>
+        </Route>
       </Switch>
     </div>
 

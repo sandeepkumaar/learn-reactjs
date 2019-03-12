@@ -176,7 +176,7 @@ neglects other routes. Similar to js switch case.
 
 Lets add switch to topics/childs
 
-## Router props with params
+## Route props with params
 Router props are supplied to `Route component`. The component will have the
 following props
 - history // mutable, use to change urls.
@@ -187,4 +187,10 @@ following props
   - path      // component path
   - url       // matched url . Usually path = url
   - params    // route params //:mark
-- staticContext
+  - staticContext
+
+## Route with custom props
+Adding *props* to `Route` will not work. The router simply ignores it.
+Instead use the **render** prop of the `Route` which can take a *render function*
+
+https://tylermcginnis.com/react-router-pass-props-to-components/
